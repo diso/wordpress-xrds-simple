@@ -51,7 +51,7 @@ function xrds_add_xrd($xrds, $id, $type=array(), $expires=false) {
  * @since 1.0
  */
 function xrds_add_service($xrds, $xrd_id, $name, $content, $priority=10) {
-	if (!is_array($xrds[$xrd_id])) {
+	if (!array_key_exists($xrd_id, $xrds) || !is_array($xrds[$xrd_id])) {
 		$xrds = xrds_add_xrd($xrds, $xrd_id);
 	}
 	$xrds[$xrd_id]['services'][$name] = array('priority' => $priority, 'content' => $content);
@@ -127,11 +127,11 @@ function xrds_write() {
 	foreach($xrds as $id => $xrd) {
 		$xml .= '	<XRD xml:id="'.htmlspecialchars($id).'" version="2.0">' . "\n";
 		$xml .= '		<Type>xri://$xrds*simple</Type>'."\n";
-		if(!$xrd['type']) $xrd['type'] = array();
+		if(!array_key_exists('type', $xrd) || !$xrd['type']) $xrd['type'] = array();
 		if(!is_array($xrd['type'])) $xrd['type'] = array($xrd['type']);
 		foreach($xrd['type'] as $type)
 			$xml .= '		<Type>'.htmlspecialchars($type).'</Type>'."\n";
-		if($xrd['expires'])
+		if(array_key_exists('expires', $xrd) && $xrd['expires'])
 			$xml .= '	<Expires>'.htmlspecialchars($xrd['expires']).'</Expires>'."\n";
 		foreach($xrd['services'] as $name => $service) {
 			$xml .= "\n".'		<!-- ' . $name . ' -->'."\n";
@@ -207,7 +207,7 @@ function xrds_plugin_actions($links, $file) {
  * Setup admin menu for XRDS.
  */
 function xrds_admin_menu() {
-	add_options_page('XRDS-Simple', 'XRDS-Simple', 8, 'xrds-simple', 'xrds_options_page');
+	add_options_page('XRDS-Simple', 'XRDS-Simple', 'manage_options', 'xrds-simple', 'xrds_options_page');
 	add_filter('plugin_action_links', 'xrds_plugin_actions', 10, 2);
 }
 
