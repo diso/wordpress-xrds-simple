@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: XRDS-Simple
-Plugin URI: http://singpolyma.net/plugins/xrds/
+Plugin URI: https://github.com/diso/wordpress-xrds-simple
 Description: Provides framework for other plugins to advertise services via XRDS.
 Version: trunk
 Author: DiSo Development Team
@@ -100,8 +100,8 @@ add_filter('xrds_simple', 'xrds_atompub_service');
  * Print HTML meta tags, advertising the location of the XRDS document.
  */
 function xrds_meta() {
-	echo '<meta http-equiv="X-XRDS-Location" content="'.get_bloginfo('home').'/?xrds" />'."\n";
-	echo '<meta http-equiv="X-Yadis-Location" content="'.get_bloginfo('home').'/?xrds" />'."\n";
+	echo '<meta http-equiv="X-XRDS-Location" content="'.get_bloginfo('url').'/?xrds" />'."\n";
+	echo '<meta http-equiv="X-Yadis-Location" content="'.get_bloginfo('url').'/?xrds" />'."\n";
 }
 
 
