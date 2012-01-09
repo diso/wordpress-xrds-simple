@@ -228,8 +228,8 @@ function xrds_parse_request($wp) {
 		echo xrds_write();
 		exit;
 	} else {
-		@header('X-XRDS-Location: '.get_bloginfo('home').'/?xrds');
-		@header('X-Yadis-Location: '.get_bloginfo('home').'/?xrds');
+		@header('X-XRDS-Location: '.get_bloginfo('url').'/?xrds');
+		@header('X-Yadis-Location: '.get_bloginfo('url').'/?xrds');
 	}
 }
 
