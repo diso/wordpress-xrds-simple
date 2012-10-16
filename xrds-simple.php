@@ -220,7 +220,7 @@ function xrds_admin_menu() {
 function xrds_parse_request($wp) {
 	$accept = explode(',', $_SERVER['HTTP_ACCEPT']);
 	if(isset($_GET['xrds']) || in_array('application/xrds+xml', $accept)) {
-		if ($_REQUEST['format'] == 'text') { 
+		if (isset($_REQUEST['format']) && $_REQUEST['format'] == 'text') { 
 			header('Content-type: text/plain');
 		} else {
 			header('Content-type: application/xrds+xml');
