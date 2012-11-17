@@ -3,7 +3,7 @@ Contributors: singpolyma, wnorris
 Tags: xrds, xrds-simple, discovery
 Requires at least: 2.1
 Tested up to: 2.6.0
-Stable tag: 1.0
+Stable tag: 1.1
 
 Provides framework for other plugins to advertise services via XRDS.
 
@@ -41,5 +41,12 @@ the file.
 
 == Changelog ==
 
-= version 1.0 =
+Project maintined on github at
+[diso/wordpress-xrds-simple](https://github.com/diso/wordpress-xrds-simple).
+
+= version 1.0 (Nov 16, 2012)=
+ - fix various PHP and WordPress errors and warnings
+ - add ability to fetch plain text XRDS document (mainly for debugging.  see [example](http://willnorris.com/?xrds=1&format=text))
+
+= version 1.0 (Oct 7, 2008) =
  - initial public release
