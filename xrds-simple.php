@@ -218,7 +218,12 @@ function xrds_admin_menu() {
  * @param object $wp WP instance for the current request
  */
 function xrds_parse_request($wp) {
-	$accept = explode(',', $_SERVER['HTTP_ACCEPT']);
+	$accept = array();
+	
+	if (isset($_SERVER['HTTP_ACCEPT'])) {
+		$accept = explode(',', $_SERVER['HTTP_ACCEPT']);
+	}
+	
 	if(isset($_GET['xrds']) || in_array('application/xrds+xml', $accept)) {
 		if (isset($_REQUEST['format']) && $_REQUEST['format'] == 'text') { 
 			header('Content-type: text/plain');
