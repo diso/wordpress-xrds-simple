@@ -123,10 +123,9 @@ function xrds_write() {
 	}
 
 	$xml = '<?xml version="1.0" encoding="UTF-8" ?>'."\n";
-	$xml .= '<xrds:XRDS xmlns:xrds="xri://$xrds" xmlns="xri://$xrd*($v*2.0)" xmlns:simple="http://xrds-simple.net/core/1.0" xmlns:openid="http://openid.net/xmlns/1.0">'."\n";
+	$xml .= '<xrds:XRDS xmlns:xrds="xri://$xrds" xmlns="xri://$xrd*($v*2.0)" >'."\n";
 	foreach($xrds as $id => $xrd) {
 		$xml .= '	<XRD xml:id="'.htmlspecialchars($id).'" version="2.0">' . "\n";
-		$xml .= '		<Type>xri://$xrds*simple</Type>'."\n";
 		if(!array_key_exists('type', $xrd) || !$xrd['type']) $xrd['type'] = array();
 		if(!is_array($xrd['type'])) $xrd['type'] = array($xrd['type']);
 		foreach($xrd['type'] as $type)
