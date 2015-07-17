@@ -1,9 +1,9 @@
 === XRDS-Simple ===
-Contributors: singpolyma, wnorris
+Contributors: singpolyma, wnorris, pfefferle
 Tags: xrds, xrds-simple, discovery
 Requires at least: 2.1
-Tested up to: 2.6.0
-Stable tag: 1.1
+Tested up to: 4.3
+Stable tag: 1.2
 
 Provides framework for other plugins to advertise services via XRDS.
 
@@ -16,7 +16,7 @@ plugin provides a generic framework to allow other plugins to contribute their
 own service endpoints to be included in the XRDS service document for the
 domain.
 
-[XRDS-Simple]: http://xrds-simple.net/
+[XRDS-Simple]: https://de.wikipedia.org/wiki/XRDS#XRDS_Simple
 [OpenID]: http://openid.net/
 [OAuth]: http://oauth.net/
 
@@ -44,7 +44,11 @@ the file.
 Project maintined on github at
 [diso/wordpress-xrds-simple](https://github.com/diso/wordpress-xrds-simple).
 
-= version 1.0 (Nov 16, 2012)=
+= version 1.2 (Jul 17, 2015)=
+ - allow 'xri://$xrds*simple' Type to be filtered out
+ - check if $_SERVER['HTTP_ACCEPT'] exist to avoid notice that break the xrds file
+
+= version 1.1 (Nov 16, 2012)=
  - fix various PHP and WordPress errors and warnings
  - add ability to fetch plain text XRDS document (mainly for debugging.  see [example](http://willnorris.com/?xrds=1&format=text))
 

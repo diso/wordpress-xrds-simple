@@ -3,7 +3,7 @@
 Plugin Name: XRDS-Simple
 Plugin URI: https://github.com/diso/wordpress-xrds-simple
 Description: Provides framework for other plugins to advertise services via XRDS.
-Version: 1.2-alpha
+Version: 1.2
 Author: DiSo Development Team
 Author URI: http://diso-project.org/
 License: MIT license (http://www.opensource.org/licenses/mit-license.php)
@@ -39,9 +39,9 @@ function xrds_add_xrd($xrds, $id, $type=array(), $expires=false) {
  * @param array $content content to be included in the service definition. Format:
  *        <code>
  *        array(
- *            'NodeName (ie, Type)' => array( 
- *                array('attribute' => 'value', 'content' => 'content string'), 
- *                ... 
+ *            'NodeName (ie, Type)' => array(
+ *                array('attribute' => 'value', 'content' => 'content string'),
+ *                ...
  *             ),
  *             ...
  *        )
@@ -59,9 +59,9 @@ function xrds_add_service($xrds, $xrd_id, $name, $content, $priority=10) {
 }
 
 /**
- * Convenience function for adding a new service with minimal options.  
- * Services will always be added to the 'main' XRD with the default priority.  
- * No additional parameters such as httpMethod on URIs can be passed.  If those 
+ * Convenience function for adding a new service with minimal options.
+ * Services will always be added to the 'main' XRD with the default priority.
+ * No additional parameters such as httpMethod on URIs can be passed.  If those
  * are necessary, use xrds_add_service().
  *
  * @param array $xrds current XRDS-Simple structure
@@ -118,7 +118,7 @@ function xrds_write() {
 		),
 	);
 	$xrds = apply_filters('xrds_simple', $xrds);
-	
+
 	//make sure main is last
 	if($xrds['main']) {
 		$o = $xrds['main'];
@@ -222,13 +222,13 @@ function xrds_admin_menu() {
  */
 function xrds_parse_request($wp) {
 	$accept = array();
-	
+
 	if (isset($_SERVER['HTTP_ACCEPT'])) {
 		$accept = explode(',', $_SERVER['HTTP_ACCEPT']);
 	}
-	
+
 	if(isset($_GET['xrds']) || in_array('application/xrds+xml', $accept)) {
-		if (isset($_REQUEST['format']) && $_REQUEST['format'] == 'text') { 
+		if (isset($_REQUEST['format']) && $_REQUEST['format'] == 'text') {
 			header('Content-type: text/plain');
 		} else {
 			header('Content-type: application/xrds+xml');
@@ -249,7 +249,7 @@ function xrds_parse_request($wp) {
  * @return array updated XRDS-Simple array
  */
 function xrds_atompub_service($xrds) {
-	$xrds = xrds_add_service($xrds, 'main', 'AtomPub Service', 
+	$xrds = xrds_add_service($xrds, 'main', 'AtomPub Service',
 		array(
 			'Type' => array( array('content' => 'http://www.w3.org/2007/app') ),
 			'MediaType' => array( array('content' => 'application/atomsvc+xml') ),
