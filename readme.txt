@@ -16,7 +16,7 @@ plugin provides a generic framework to allow other plugins to contribute their
 own service endpoints to be included in the XRDS service document for the
 domain.
 
-[XRDS-Simple]: https://de.wikipedia.org/wiki/XRDS#XRDS_Simple
+[XRDS-Simple]: https://en.wikipedia.org/wiki/XRDS#XRDS_Simple
 [OpenID]: http://openid.net/
 [OAuth]: http://oauth.net/
 
