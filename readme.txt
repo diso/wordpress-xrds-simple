@@ -2,7 +2,7 @@
 Contributors: singpolyma, wnorris, pfefferle
 Tags: xrds, xrds-simple, discovery
 Requires at least: 2.1
-Tested up to: 6.4
+Tested up to: 6.5
 Stable tag: 1.2.1
 
 Provides framework for other plugins to advertise services via XRDS.
