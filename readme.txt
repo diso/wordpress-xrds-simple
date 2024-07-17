@@ -4,6 +4,8 @@ Tags: xrds, xrds-simple, discovery
 Requires at least: 2.1
 Tested up to: 6.6
 Stable tag: 1.2.1
+License: MIT
+License URI: https://opensource.org/licenses/MIT
 
 Provides framework for other plugins to advertise services via XRDS.
 
