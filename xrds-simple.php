@@ -6,7 +6,8 @@
  * Version: 1.2.1
  * Author: DiSo Development Team
  * Author URI: http://diso-project.org/
- * License: MIT license (http://www.opensource.org/licenses/mit-license.php)
+ * License: MIT
+ * License URI: https://opensource.org/licenses/MIT
  */
 
 
